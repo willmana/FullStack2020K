@@ -1,2 +1,2 @@
-# FullStack2k19
+# FullStack2020
 This is repository for university course called FullStack.
