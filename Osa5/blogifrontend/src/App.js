@@ -65,6 +65,7 @@ const App = () => {
   const handleLogout = async (event) => {
     event.preventDefault()
     setUser(null)
+    window.localStorage.clear()
     setMessageType(1)
     setErrorMessage('Logged out')
     setTimeout(() => {
