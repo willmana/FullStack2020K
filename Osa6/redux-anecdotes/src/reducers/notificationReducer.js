@@ -1,28 +1,26 @@
 const messageAtStart = null
 
-export const showMessage = ( message) => {
-    return {
-        type: 'SHOW_NOTIFICATION',
-        data: {
-            message: message
-        }
+export const setNotification = ( message, timeout) => {
+    return async dispatch => {
+        dispatch({
+            type: 'SHOW_NOTIFICATION',
+            data: message
+        })
+        setTimeout(()=> {
+            dispatch({
+                type: 'HIDE_NOTIFICATION'
+            })
+        }, timeout * 1000)
     }
 }
-export const hideMessage = ( ) => {
-    return {
-        type: 'HIDE_NOTIFICATION',
-        data: {
-            message: null
-        }
-    }
-}
+
 
 const reducer = (state = messageAtStart, action) => {
     switch (action.type) {
         case 'SHOW_NOTIFICATION':
-            return state = action.data.message
+            return state = action.data
         case 'HIDE_NOTIFICATION':
-            return state = action.data.message
+            return messageAtStart
         default:
             return state
     }
